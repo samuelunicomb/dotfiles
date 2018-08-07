@@ -64,3 +64,6 @@ set nowrap
 set textwidth=0 wrapmargin=0
 
 nmap <C-N><C-N> :set invnumber<CR>
+
+"set tabstop=2 shiftwidth=2 expandtab
+"retab
