@@ -134,6 +134,7 @@ export PS2;
 
 HISTFILESIZE=10000
 HISTSIZE=10000
+export HISTCONTROL=ignoreboth:erasedups
 
 # brew completion
 if which brew >/dev/null 2>&1; then
