@@ -4,6 +4,7 @@ alias orange="ssh sunicomb@orange.lip.ens-lyon.fr"
 alias citron="ssh sunicomb@citron.lip.ens-lyon.fr"
 alias allopsmn="ssh sunicomb@allo-psmn.ens-lyon.fr"
 alias sshpsmn="ssh sunicomb@ssh.psmn.ens-lyon.fr"
+alias psmnjump="ssh -J sunicomb@ssh.psmn.ens-lyon.fr sunicomb@allo-psmn.ens-lyon.fr"
 
 #export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 #export CLICOLOR=1
