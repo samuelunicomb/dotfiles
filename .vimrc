@@ -21,10 +21,10 @@ set shiftwidth=2     " indent also with 2 spaces
 set expandtab        " expand tabs to spaces
 retab
 
-" handling tabs
-:set expandtab
-:set tabstop=2
-:set shiftwidth=2
+"" handling tabs
+":set expandtab
+":set tabstop=2
+":set shiftwidth=2
 
 " line numbering
 :set number

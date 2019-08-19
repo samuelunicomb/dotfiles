@@ -1,1 +1,0 @@
-/Users/sam/.byobu_lab.sh
