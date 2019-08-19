@@ -2,7 +2,7 @@
 
 # simple script for opening a new byobu session in a desired directory layout
 
-# note : paths can't be defined in quotes ??????????
+# note : paths can't be defined in quotes??? eg DIR1="~/lab/redesign" not found
 
 SESH="lab"
 DIR1=~/lab/redesign
