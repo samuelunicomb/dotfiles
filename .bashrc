@@ -2,14 +2,22 @@ alias cassis="ssh sunicomb@cassis.lip.ens-lyon.fr"
 alias fraise="ssh sunicomb@fraise.lip.ens-lyon.fr"
 alias orange="ssh sunicomb@orange.lip.ens-lyon.fr"
 alias citron="ssh sunicomb@citron.lip.ens-lyon.fr"
+
 alias allopsmn="ssh sunicomb@allo-psmn.ens-lyon.fr"
 alias sshpsmn="ssh sunicomb@ssh.psmn.ens-lyon.fr"
 alias psmnjump="ssh -J sunicomb@ssh.psmn.ens-lyon.fr sunicomb@allo-psmn.ens-lyon.fr"
 
 alias g++="g++-8"
 
+alias ll="ls -alhF"
+
 export BYOBU_PREFIX="/usr/local"
 alias byobu="BYOBU_PYTHON=/usr/bin/python byobu"
+
+hgrep ()
+{
+  history | grep "$1" | tail -10
+}
 
 #export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 #export CLICOLOR=1
@@ -139,8 +147,9 @@ export PS1;
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
 
-HISTFILESIZE=10000
-HISTSIZE=10000
+HISTFILESIZE=100000
+HISTSIZE=100000
+
 export HISTCONTROL=ignoreboth:erasedups
 
 # brew completion
@@ -153,3 +162,6 @@ if which brew >/dev/null 2>&1; then
     . $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
   fi
 fi
+
+
+alias pip=/usr/local/bin/pip3

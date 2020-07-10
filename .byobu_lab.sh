@@ -7,6 +7,7 @@
 SESH="lab"
 DIR1=~/lab
 DIR2=~/lab/src
+DIR3="~/lab/experiment-27/run08"
 
 # new session for basic development of lab
 byobu new-session -d -s $SESH -c $DIR1

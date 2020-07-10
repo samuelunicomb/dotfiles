@@ -13,7 +13,7 @@ set nocompatible
 set autoindent
 
 " use intelligent indentation for C
-set smartindent
+"set smartindent
 
 " configure tabwidth and insert spaces instead of tabs
 set tabstop=2        " tab width is 2 spaces
