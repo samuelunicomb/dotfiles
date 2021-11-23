@@ -2,16 +2,22 @@ alias allopsmn="ssh sunicomb@allo-psmn.ens-lyon.fr"
 alias psmnjump="ssh -J sunicomb@ssh.psmn.ens-lyon.fr sunicomb@allo-psmn.ens-lyon.fr"
 alias sshpsmn="ssh sunicomb@ssh.psmn.ens-lyon.fr"
 
-alias g++="g++-8"
+#alias g++="g++-8" # not enough to comment out, have to rune "unalias g++"
 
 alias ll="ls -alhF"
+
+alias pip=/usr/local/bin/pip3
 
 export BYOBU_PREFIX="/usr/local"
 alias byobu="BYOBU_PYTHON=/usr/bin/python byobu"
 
 hgrep ()
 {
-  history | grep "$1" | tail -10
+  if [ "$#" -eq 1 ]; then
+    history | grep "$1" | tail -10
+  else
+    history | grep "$1" | tail -"$2"
+  fi
 }
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -20,57 +26,31 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
   export TERM='xterm-256color';
 fi;
 
+# solarized colors from http://git.io/solarized-colors
 if tput setaf 1 &> /dev/null; then
-  tput sgr0; # reset colors
+  tput sgr0;
   bold=$(tput bold);
   reset=$(tput sgr0);
-  # Solarized colors, taken from http://git.io/solarized-colors.
-  black=$(tput setaf 0);
-  blue=$(tput setaf 33);
-  cyan=$(tput setaf 37);
-  green=$(tput setaf 64);
-  orange=$(tput setaf 166);
-  purple=$(tput setaf 125);
-  red=$(tput setaf 124);
-  violet=$(tput setaf 61);
+  nameblue=$(tput setaf 014);
+  pathblue=$(tput setaf 189);
   white=$(tput setaf 15);
-  yellow=$(tput setaf 136);
 else
   bold='';
   reset="\e[0m";
-  black="\e[1;30m";
-  blue="\e[1;34m";
-  cyan="\e[1;36m";
-  green="\e[1;32m";
-  orange="\e[1;33m";
-  purple="\e[1;35m";
-  red="\e[1;31m";
-  violet="\e[1;35m";
+  nameblue="\e[1;37m";
+  pathblue="\e[1;37m";
   white="\e[1;37m";
-  yellow="\e[1;33m";
 fi;
 
-# Highlight the user name when logged in as root.
-if [[ "${USER}" == "root" ]]; then
-  userStyle="${red}";
-else
-  userStyle="${orange}";
-fi;
+# set colours
+LSCOLORS=GxFxCxDxBxegedabagaced
+export LSCOLORS
 
-# Highlight the hostname when connected via SSH.
-if [[ "${SSH_TTY}" ]]; then
-  hostStyle="${bold}${red}";
-else
-  hostStyle="${yellow}";
-fi;
-
-# Set the terminal title and prompt.
+# set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${userStyle}\]\u"; # username
+PS1+="\[${nameblue}\]\u"; # username
 PS1+="\[${white}\]@";
-PS1+="\[${hostStyle}\]\h"; # host
-PS1+="\[${white}\]:";
-PS1+="\[${green}\]\w"; # working directory full path
+PS1+="\[${pathblue}\]\w"; # working directory full path
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
@@ -92,6 +72,3 @@ if which brew >/dev/null 2>&1; then
     . $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
   fi
 fi
-
-
-alias pip=/usr/local/bin/pip3

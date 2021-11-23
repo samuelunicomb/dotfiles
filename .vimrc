@@ -21,24 +21,16 @@ set shiftwidth=2     " indent also with 2 spaces
 set expandtab        " expand tabs to spaces
 retab
 
-"" handling tabs
-":set expandtab
-":set tabstop=2
-":set shiftwidth=2
-
 " line numbering
 :set number
 :set numberwidth=2
-
-" underline line of cursor
-"set cursorline
 
 " shows cursor information 
 set ruler
 
 " turn syntax highlighting on
 syntax on
-colorscheme desert
+colorscheme industry
 
 " turn line numbers on
 set number
@@ -58,6 +50,9 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 " highlight searched terms
 set hlsearch
 
+" undo highlighting after hitting enter
+nnoremap <CR> :noh<CR><CR>
+
 " wrap lines at 120 chars. 80 is somewhat antiquated with modern displays.
 set textwidth=80
 set nowrap
@@ -65,5 +60,18 @@ set textwidth=0 wrapmargin=0
 
 nmap <C-N><C-N> :set invnumber<CR>
 
-"set tabstop=2 shiftwidth=2 expandtab
-"retab
+" statusline configuration
+set laststatus=2
+
+set statusline=
+set statusline+=%#PmenuSel#
+"set statusline+=%#LineNr#
+set statusline+=\ %F
+set statusline+=%m\
+set statusline+=%=
+" set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %l(%L),%c
+set statusline+=\
