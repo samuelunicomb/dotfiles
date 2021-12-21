@@ -22,8 +22,8 @@ set expandtab        " expand tabs to spaces
 retab
 
 " line numbering
-:set number
-:set numberwidth=2
+set number
+set numberwidth=2
 
 " shows cursor information 
 set ruler
