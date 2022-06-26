@@ -7,14 +7,14 @@
 ### To customize gnuplot's initial state for an individual user,
 ### place commands in a private file ~/.gnuplot instead.
 
-set term qt font ",12" size 700,550
-set key font ",10"
-
 ###
 ### Language initialization
 ###
 # set locale
 # set encoding locale
+
+set term qt font ",12" size 700,550
+set key font ",11"
 
 ###
 ### Default line colors and repeat cycle
@@ -46,3 +46,4 @@ set key font ",10"
 ### Other preferences
 ###
 # set clip two
+

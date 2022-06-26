@@ -7,6 +7,8 @@ alias tac="tail -r"
 export BYOBU_PREFIX="/usr/local"
 alias byobu="BYOBU_PYTHON=/usr/bin/python byobu"
 
+alias g="gnuplot"
+
 #alias g++="g++-8" # must unalias too
 
 hgrep ()
@@ -16,6 +18,27 @@ hgrep ()
   else
     history | grep "$1" | tail -"$2"
   fi
+}
+
+wordle ()
+{
+  FILE="wordle.dat"
+
+  if [ -f "$FILE" ]
+  then
+    #AVG=$(cat "$FILE" | awk '{s += $1 * $2; t += $2} END {print s / t}')
+
+    AVG=$(cat "$FILE" | awk '{if (NR % 2 == 1) {c = $1} else {f = $1; t += $1; s += c * f}} END {print s / t}')
+
+    echo "average wordle score is $AVG, do better"
+  else
+    echo "$FILE is not in this directory"
+  fi
+}
+
+function validate_url()
+{
+  if [[ `wget -S --spider $1  2>&1 | grep 'HTTP/1.1 200 OK'` ]]; then wget $i; fi
 }
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then

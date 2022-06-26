@@ -6,7 +6,7 @@
 
 SESH="graph"
 DIR1=~/lab
-DIR2=~/lab/src/graph/graphb
+DIR2=~/lab/src/graph/graphc
 DIR3=~/lab/data/dynamic
 
 # new session for basic development of lab
