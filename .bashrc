@@ -1,13 +1,23 @@
+# R interpreter throws warning if these aren't set, run $locales
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 alias allopsmn="ssh sunicomb@allo-psmn.ens-lyon.fr"
 alias psmnjump="ssh -J sunicomb@ssh.psmn.ens-lyon.fr sunicomb@allo-psmn.ens-lyon.fr"
 alias sshpsmn="ssh sunicomb@ssh.psmn.ens-lyon.fr"
+#ssh sunicomb@kay.ichec.ie
 alias pip=/usr/local/bin/pip3
 alias tac="tail -r"
 
 export BYOBU_PREFIX="/usr/local"
+
 alias byobu="BYOBU_PYTHON=/usr/bin/python byobu"
 
 alias g="gnuplot"
+alias p="python"
+alias v="vim"
+
+alias rrscript="Rscript"
 
 #alias g++="g++-8" # must unalias too
 
@@ -26,8 +36,6 @@ wordle ()
 
   if [ -f "$FILE" ]
   then
-    #AVG=$(cat "$FILE" | awk '{s += $1 * $2; t += $2} END {print s / t}')
-
     AVG=$(cat "$FILE" | awk '{if (NR % 2 == 1) {c = $1} else {f = $1; t += $1; s += c * f}} END {print s / t}')
 
     echo "average wordle score is $AVG, do better"

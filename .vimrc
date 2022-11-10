@@ -60,18 +60,22 @@ set textwidth=0 wrapmargin=0
 
 nmap <C-N><C-N> :set invnumber<CR>
 
-" statusline configuration
-set laststatus=2
+" auotomatically save folds, and implement folds on opening a file
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
-set statusline=
-set statusline+=%#PmenuSel#
-"set statusline+=%#LineNr#
-set statusline+=\ %F
-set statusline+=%m\
-set statusline+=%=
-" set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %l(%L),%c
-set statusline+=\
+" statusline configuration
+"set laststatus=2
+"
+"set statusline=
+"set statusline+=%#PmenuSel#
+""set statusline+=%#LineNr#
+"set statusline+=\ %F
+"set statusline+=%m\
+"set statusline+=%=
+"" set statusline+=%#CursorColumn#
+"set statusline+=\ %y
+"set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+"set statusline+=\[%{&fileformat}\]
+"set statusline+=\ %l(%L),%c
+"set statusline+=\
