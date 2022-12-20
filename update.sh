@@ -4,6 +4,6 @@ DIR=~/dotfiles
 
 cp ~/.bashrc $DIR
 cp ~/.vimrc $DIR
-cp ~/.byobu_*.sh $DIR
 cp ~/.tmux.conf $DIR
-cp /usr/local/Cellar/gnuplot/5.4.3_1/share/gnuplot/5.4/gnuplotrc $DIR
+cp ~/.gnuplot $DIR
+#cp /usr/local/Cellar/gnuplot/*/share/gnuplot/*/gnuplotrc $DIR
